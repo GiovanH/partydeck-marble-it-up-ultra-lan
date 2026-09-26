@@ -1,0 +1,9 @@
+<Project>
+	<PropertyGroup>
+		<UserPropertiesSetUp>True</UserPropertiesSetUp>
+		<!-- Insert path to MIUU game directory here -->
+		<GameDir></GameDir>
+		<!-- Subdirectory is "Marble It Up_Data" on Windows, but "MarbleItUp_Data" on Linux -->
+		<GameDataDir>$(GameDir)/MarbleItUp_Data</GameDataDir>
+	</PropertyGroup>
+</Project>

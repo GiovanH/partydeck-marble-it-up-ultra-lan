@@ -1,0 +1,19 @@
+{
+  "name": "Marble it Up! Ultra",
+  "author": "GiovanH",
+  "version": "0.1",
+  "info": "",
+  "spec_ver": 3,
+  "path_gameroot": "",
+  "runtime": "",
+  "exec": "run.sh",
+  "args": "./MarbleItUp.x86_64 -player $INSTANCENUM -unlockcosmetics -randomskin -nosteam",
+  "env": "",
+  "sdl2_override": "No",
+  "pause_between_starts": null,
+  "use_mangohud": false,
+  "use_goldberg": true,
+  "ps_xinput": true,
+  "steam_appid": 864060,
+  "game_null_paths": []
+}

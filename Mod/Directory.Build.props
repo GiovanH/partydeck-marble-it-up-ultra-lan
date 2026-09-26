@@ -1,0 +1,7 @@
+<Project>
+  <!-- Keep compiled output out of the source tree. -->
+  <PropertyGroup>
+    <BaseIntermediateOutputPath>$(MSBuildThisFileDirectory)../build/obj/</BaseIntermediateOutputPath>
+    <BaseOutputPath>$(MSBuildThisFileDirectory)../build/bin/</BaseOutputPath>
+  </PropertyGroup>
+</Project>

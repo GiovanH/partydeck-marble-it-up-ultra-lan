@@ -1,0 +1,9 @@
+reference/
+*.dll
+*.pdb
+
+# Local tooling, build output, release packages
+.tools/
+build/
+dist/
+Mod/UserProperties.xml

@@ -1,0 +1,72 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <AssemblyName>MIUULan</AssemblyName>
+    <Product>Marble It Up! Ultra LAN Splitscreen mod</Product>
+    <Version>0.1.0</Version>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>MIUULan</RootNamespace>
+  </PropertyGroup>
+
+  <!-- dotnet build -p:DebugOverlay=true (or DEBUG_OVERLAY=1 scripts/build.sh) shows the corner status text. -->
+  <PropertyGroup Condition="'$(DebugOverlay)' == 'true'">
+    <DefineConstants>$(DefineConstants);DEBUG_OVERLAY</DefineConstants>
+  </PropertyGroup>
+
+  <Import Project="$(ProjectDir)UserProperties.xml" />
+
+  <Target Name="VerifyModReferences" BeforeTargets="Build">
+    <Error 
+      Text="Missing UserProperties.xml. Copy UserProperties.xml.template and configure it with necessary changes." 
+      Condition="$(UserPropertiesSetUp) != True" />
+  </Target>
+
+  <Target Name="CopyToBuildDir" AfterTargets="Build">
+    <Copy SourceFiles="$(TargetDir)$(TargetName).dll" DestinationFolder="$(ProjectDir)../build/" />
+  </Target>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />
+    <PackageReference Include="Lib.Harmony" Version="2.4.2" PrivateAssets="all" ExcludeAssets="runtime" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(GameDataDir)/Managed/Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="TECNetUnity">
+      <HintPath>$(GameDataDir)/Managed/TECNetUnity.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Rewired_Core">
+      <HintPath>$(GameDataDir)/Managed/Rewired_Core.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>$(GameDataDir)/Managed/UnityEngine.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>$(GameDataDir)/Managed/UnityEngine.IMGUIModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>$(GameDataDir)/Managed/UnityEngine.TextRenderingModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>$(GameDataDir)/Managed/UnityEngine.UI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>$(GameDataDir)/Managed/Unity.TextMeshPro.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(GameDataDir)/Managed/UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+</Project>
